@@ -12,15 +12,15 @@ int tray = 2;
 int score = 0;
 
 void onButtonA(MicroBitEvent e) {
-  tray--;
-  if (tray == 0) {
+  tray--; // move left
+  if (tray <= 0) {
     tray = 0;
   }
 }
 
 void onButtonB(MicroBitEvent e) {
-  tray++;
-  if (tray == 4) {
+  tray++; // move right
+  if (tray >= 4) {
     tray = 4;
   }
 }
@@ -68,6 +68,7 @@ int main(){
       } else if (rainY > 4) {
         // game over
         uBit.display.print("X")
+
         // display score
         uBit.display.scroll(score);
       }
