@@ -1,0 +1,11 @@
+{
+  "name": "eventexample",
+  "version": "0.0.0",
+  "description": "just testing",
+  "license": "MIT",
+  "dependencies": {
+    "microbit": "lancaster-university/microbit"
+  },
+  "targetDependencies": {},
+  "bin": "./source"
+}
