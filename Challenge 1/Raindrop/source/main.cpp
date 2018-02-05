@@ -25,17 +25,20 @@ void onButtonB(MicroBitEvent e) {
   }
 }
 
-bool isCaught(){
-  // checks if raindrop & tray is in same position
-  if (rainX = tray && rainY = 4) {
-    resetRain();
-    return true;
-  }
-}
-
 void resetRain(){
   rainX = uBit.random(5);
   rainY = -1;
+}
+
+
+bool isCaught(){
+  // checks if raindrop & tray is in same position
+  if (rainX == tray && rainY == 4) {
+    resetRain();
+    return true;
+  }
+  else
+	return false;
 }
 
 int main(){
@@ -67,11 +70,9 @@ int main(){
         score++;
       } else if (rainY > 4) {
         // game over
-        uBit.display.print("X")
-
         // display score
-        uBit.display.scroll(score);
+        uBit.display.print(score);
       }
-      ubit.sleep(500);
+      uBit.sleep(300);
   }
 }
