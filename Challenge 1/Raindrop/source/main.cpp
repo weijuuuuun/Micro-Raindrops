@@ -11,14 +11,14 @@ int tray = 2;
 
 int score = 0;
 
-void onButtonA(MicroBitEvent e) {
+void onButtonA(MicroBitEvent) {
   tray--; // move left
   if (tray <= 0) {
     tray = 0;
   }
 }
 
-void onButtonB(MicroBitEvent e) {
+void onButtonB(MicroBitEvent) {
   tray++; // move right
   if (tray >= 4) {
     tray = 4;
@@ -73,6 +73,7 @@ int main(){
         // display score
         uBit.display.print(score);
       }
+      // controls rate of execution
       uBit.sleep(300);
   }
 }

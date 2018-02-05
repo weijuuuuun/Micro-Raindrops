@@ -1,7 +1,7 @@
 {
-  "name": "eventexample",
+  "name": "raindrop",
   "version": "0.0.0",
-  "description": "just testing",
+  "description": "challenge 1",
   "license": "MIT",
   "dependencies": {
     "microbit": "lancaster-university/microbit"
