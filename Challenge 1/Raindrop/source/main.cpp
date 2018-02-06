@@ -1,6 +1,8 @@
 #include "MicroBit.h"
 
 MicroBit uBit;
+MicroBitI2C i2c = MicroBitI2C(I2C_SDA0, I2C_SCL0);
+MicroBitAccelerometer accelerometer = MicroBitAccelerometer(i2c);
 
 // set raindrop position
 int rainX = 2;
@@ -63,6 +65,20 @@ int main(){
       uBit.messageBus.listen(MICROBIT_ID_BUTTON_A, MICROBIT_BUTTON_EVT_CLICK, onButtonA);
       uBit.messageBus.listen(MICROBIT_ID_BUTTON_B, MICROBIT_BUTTON_EVT_CLICK, onButtonB);
 
+
+      // implements accelerometer
+      if(uBit.accelerometer.getX() < -500){
+        tray--;
+        if (tray <= 0) {
+          tray = 0;
+        }
+      } else if(uBit.accelerometer.getX() > 500) {
+        tray++;
+        if (tray >= 4) {
+          tray = 4;
+        }
+      }
+
       // plot tray position
       uBit.display.image.setPixelValue(tray,4,255);
 
@@ -74,6 +90,6 @@ int main(){
         uBit.display.print(score);
       }
       // controls rate of execution
-      uBit.sleep(300);
+      uBit.sleep(500);
   }
 }
