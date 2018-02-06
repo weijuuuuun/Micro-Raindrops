@@ -12,6 +12,7 @@ int rainY = 0;
 int tray = 2;
 
 int score = 0;
+int speed = 500;
 
 void onButtonA(MicroBitEvent) {
   tray--; // move left
@@ -89,7 +90,13 @@ int main(){
         // display score
         uBit.display.print(score);
       }
+
       // controls rate of execution
-      uBit.sleep(500);
+      if(score == 5){
+        speed = speed - 50;
+      } else if(score == 10){
+        speed = speed - 50;
+      }
+      uBit.sleep(speed);
   }
 }
