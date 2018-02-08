@@ -4,7 +4,7 @@
 Set `yotta` target before building application. Then copy executable to micro:bit. [Learn more](https://lancaster-university.github.io/microbit-docs/offline-toolchains "Yotta Offline Build System")
 
 ```
-target bbc-microbit-classic-gcc
+yt target bbc-microbit-classic-gcc
 yt build
 ```
 Executable .hex file in directory:
